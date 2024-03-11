@@ -1,33 +1,30 @@
-class Department {
-  private name: string;
-  private employees: string[] = [];
+// Interface describes the structure of the object
 
-  constructor(name: string) {
-    this.name = name;
+interface Greetable {
+  name: string;
+
+  greet(phrase: string): void;
+}
+
+class Person implements Greetable {
+  name: string;
+
+  constructor(n: string) {
+    this.name = n;
   }
 
-  public describe(this: Department) {
-    console.log("Department: " + this.name);
-  }
-
-  public addEmployee(employee: string) {
-    this.employees.push(employee);
-  }
-
-  public printEmployeeInformation() {
-    console.log("Employee Information: " + this.employees);
+  greet(phrase: string) {
+    console.log(phrase + this.name);
   }
 }
 
-const accounting = new Department("accounting");
-console.log(accounting);
+let person: Greetable;
+person = {
+  name: "Phani",
 
-accounting.describe();
-accounting.addEmployee("Sruti");
-accounting.addEmployee("Phani");
+  greet(phrase: string) {
+    console.log(phrase + this.name);
+  },
+};
 
-accounting.printEmployeeInformation();
-
-// const accountingCopy = { name: "DUMMY", describe: accounting.describe };
-
-// accountingCopy.describe();
+person.greet("Hi There this is ");
