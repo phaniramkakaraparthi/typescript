@@ -1,8 +1,10 @@
-// Interface describes the structure of the object
-
-interface Greetable {
+// Interface can extend another interface
+interface Named {
   name: string;
-
+  userName?: string; // Optional property marked with ?
+}
+// Interface describes the structure of the object
+interface Greetable extends Named {
   greet(phrase: string): void;
 }
 
